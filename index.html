@@ -3,95 +3,187 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="سایت رسمی هیرومیا - معرفی، ویدیوها و ارتباط با ما">
-  <title>سایت رسمی هیرومیا</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <meta name="description" content="سایت رسمی هیرومیا - هنرمند و خالق محتوای دیجیتال. مشاهده ویدیوها، ارسال پیام و کشف بیشتر." />
+  <title>هیرومیا | سایت رسمی</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet" integrity="sha384-G6WvISwZHakEvRXB7iEAZEC0uLPWxKxxEeHEdBDEuDfSU/EYEYdzSsfXCMV6tAnC" crossorigin="anonymous">
   <style>
-    body.dark {
-      background-color: #111;
-      color: #eee;
+    :root {
+      --primary-color: #6f42c1;
+      --bg-light: #fff;
+      --bg-dark: #121212;
+      --text-light: #f8f9fa;
+      --text-dark: #212529;
     }
-    #typewriter {
-      font-family: 'Vazir', sans-serif;
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      margin: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: var(--primary-color);
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(6px);
+      transition: background 0.3s;
+    }
+
+    body.dark-mode nav {
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: inherit;
+      font-weight: bold;
+      transition: opacity 0.2s;
+    }
+
+    nav a:hover {
+      opacity: 0.7;
+    }
+
+    .typing {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      color: inherit;
       white-space: nowrap;
       overflow: hidden;
-      border-right: .15em solid orange;
-      animation: typing 4s steps(40, end), blink .75s step-end infinite;
+      border-right: 2px solid;
+      animation: typing 3s steps(30, end), blink 0.7s step-end infinite;
     }
+
     @keyframes typing {
       from { width: 0 }
       to { width: 100% }
     }
+
     @keyframes blink {
-      from, to { border-color: transparent }
-      50% { border-color: orange }
+      50% { border-color: transparent }
     }
-    .fade {
-      transition: all 0.3s ease-in-out;
+
+    section {
+      padding: 3rem 1rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    iframe {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      left: 10px;
+      top: 10px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    #contact {
+      background: #f1f1f1;
+      border-radius: 8px;
+    }
+
+    body.dark-mode #contact {
+      background: #1e1e1e;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
-<body class="bg-white text-black dark:bg-black dark:text-white">
-  <!-- ناوبری -->
-  <nav class="fixed top-0 left-0 w-full z-30 bg-black/70 backdrop-blur-md text-white shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-      <img src="logo.png" alt="Hiromiya Logo" class="h-10">
-      <ul class="flex gap-4">
-        <li><a href="#videos" class="hover:text-orange-400">ویدیوها</a></li>
-        <li><a href="#about" class="hover:text-orange-400">درباره ما</a></li>
-        <li><a href="#contact" class="hover:text-orange-400">ارتباط</a></li>
-      </ul>
-      <button id="theme-toggle" class="bg-gray-800 text-white px-3 py-1 rounded">حالت</button>
-    </div>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+
+  <header>
+    <h1>هیرومیا</h1>
+    <div class="typing">به سایت رسمی هیرومیا خوش اومدی!</div>
+  </header>
+
+  <nav>
+    <a href="#videos">ویدیوها</a>
+    <a href="#about">درباره ما</a>
+    <a href="#contact">تماس</a>
   </nav>
 
-  <!-- تایپ افکت -->
-  <div class="pt-40 text-center">
-    <div id="typewriter" class="text-3xl md:text-5xl font-bold text-orange-500 mt-10 z-20 relative">
-      به سایت رسمی هیرومیا خوش اومدی
-    </div>
-  </div>
-
-  <!-- بخش ویدیوها -->
-  <section id="videos" class="max-w-5xl mx-auto mt-20 px-4" data-aos="fade-up">
-    <h2 class="text-2xl font-bold mb-6">ویدیوهای ما</h2>
-    <div class="grid gap-4 md:grid-cols-3">
-      <iframe loading="lazy" src="https://www.youtube.com/embed/MQcLogxajog" class="w-full h-48" allowfullscreen></iframe>
-      <iframe loading="lazy" src="https://www.youtube.com/embed/AtQERuTmFZA" class="w-full h-48" allowfullscreen></iframe>
-      <iframe loading="lazy" src="https://www.youtube.com/embed/eU_QQJx9oMM" class="w-full h-48" allowfullscreen></iframe>
-    </div>
+  <section id="videos" data-aos="fade-up">
+    <h2 class="section-title">ویدیوها</h2>
+    <iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/MQcLogxajog" allowfullscreen></iframe>
+    <iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/AtQERuTmFZA" allowfullscreen></iframe>
+    <iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/eU_QQJx9oMM" allowfullscreen></iframe>
   </section>
 
-  <!-- درباره ما -->
-  <section id="about" class="max-w-3xl mx-auto mt-20 px-4" data-aos="fade-left">
-    <h2 class="text-2xl font-bold mb-4">درباره هیرومیا</h2>
-    <p>ما در هیرومیا محتوای خاص و منحصر به فرد ارائه می‌دهیم...</p>
+  <section id="about" data-aos="fade-left">
+    <h2 class="section-title">درباره هیرومیا</h2>
+    <p>هیرومیا هنرمند و تولیدکننده محتوای دیجیتال است. او با سبک خاص خود، مخاطبان بسیاری را جذب کرده است.</p>
   </section>
 
-  <!-- تماس با ما -->
-  <section id="contact" class="max-w-2xl mx-auto mt-20 px-4 mb-20" data-aos="fade-right">
-    <h2 class="text-2xl font-bold mb-4">تماس با ما</h2>
-    <form class="space-y-4">
-      <input type="text" placeholder="نام" class="w-full p-2 border rounded bg-white dark:bg-gray-800">
-      <input type="email" placeholder="ایمیل" class="w-full p-2 border rounded bg-white dark:bg-gray-800">
-      <textarea placeholder="پیام شما..." class="w-full p-2 border rounded bg-white dark:bg-gray-800"></textarea>
-      <button type="submit" class="bg-orange-500 text-white px-4 py-2 rounded">ارسال</button>
+  <section id="contact" data-aos="fade-right">
+    <h2 class="section-title">تماس با ما</h2>
+    <form>
+      <div class="mb-3">
+        <label class="form-label">نام</label>
+        <input type="text" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">ایمیل</label>
+        <input type="email" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">پیام</label>
+        <textarea class="form-control" rows="4"></textarea>
+      </div>
+      <button class="btn btn-primary">ارسال</button>
     </form>
   </section>
 
-  <!-- موزیک مخفی -->
-  <audio autoplay loop hidden>
-    <source src="background.mp3" type="audio/mpeg">
+  <footer>
+    © 2025 هیرومیا. همه حقوق محفوظ است.
+  </footer>
+
+  <audio autoplay loop style="display: none">
+    <source src="music.mp3" type="audio/mpeg">
   </audio>
 
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
-    document.getElementById('theme-toggle').addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-    });
+
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+    }
   </script>
 </body>
 </html>
