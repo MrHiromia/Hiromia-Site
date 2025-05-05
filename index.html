@@ -3,84 +3,157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="وب‌سایت شخصی هیرومیا - گالری ویدیو، فرم تماس، و امکانات جذاب دیگر." />
-  <title>هیرومیا - گالری و ارتباط</title>
-  <link rel="icon" href="favicon.png" type="image/png" />
+  <meta name="description" content="صفحه شخصی هیرومیا - شامل ویدیوها، اطلاعات تماس، و درباره ما با طراحی مدرن و زیبا.">
+  <title>هیرومیا | صفحه رسمی</title>
+  <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
-    body { background-color: var(--bg); color: var(--text); transition: background 0.3s, color 0.3s; scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', sans-serif;
+      transition: all 0.3s ease;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
     :root {
-      --bg: #f4f4f4;
-      --text: #111;
+      --bg: #ffffff;
+      --text: #000000;
+      --header: #f1f1f1;
     }
-    .dark-mode {
+    .dark {
       --bg: #121212;
-      --text: #f9f9f9;
+      --text: #f0f0f0;
+      --header: #1e1e1e;
     }
-    header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 999; }
-    nav a { margin-left: 1rem; text-decoration: none; color: inherit; font-weight: bold; }
-    .toggle-btn { border: none; background: #eee; padding: 0.4rem 0.8rem; border-radius: 12px; cursor: pointer; font-size: 0.9rem; }
-    section { padding: 3rem 2rem; max-width: 1000px; margin: auto; }
-    h1, h2 { margin-bottom: 1rem; }
-    .video-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
-    iframe { width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; }
-    footer { text-align: center; padding: 1rem; background: #eee; }
-    .typewriter span::after {
-      content: '|'; animation: blink 1s infinite;
+    header {
+      background: var(--header);
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    nav a {
+      margin: 0 10px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .typing {
+      font-size: 1.5rem;
+      white-space: nowrap;
+      border-right: 2px solid var(--text);
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(30, end) forwards, blink 0.7s step-end infinite;
+    }
+    @keyframes typing {
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+    .section {
+      padding: 4rem 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 10px;
+    }
+    .toggle-theme {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      background: var(--header);
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+      opacity: 0.7;
+    }
+    .toggle-theme:hover {
+      opacity: 1;
+    }
+    form {
+      background: var(--header);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    input, textarea, button {
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
+  <div class="toggle-theme" onclick="toggleTheme()">حالت تیره / روشن</div>
   <header>
-    <div><strong>هیرومیا</strong></div>
+    <h1 class="typing">به سایت رسمی هیرومیا خوش آمدید</h1>
     <nav>
-      <a href="#videos">ویدیوها</a>
       <a href="#about">درباره</a>
+      <a href="#videos">ویدیوها</a>
       <a href="#contact">تماس</a>
-      <button class="toggle-btn" onclick="toggleTheme()">حالت تیره</button>
     </nav>
   </header>
 
-  <section data-aos="fade-up">
-    <h1 class="typewriter"><span>به وب‌سایت رسمی هیرومیا خوش آمدید</span></h1>
-  </section>
-
-  <section id="videos" data-aos="fade-up">
-    <h2>ویدیوهای ویژه</h2>
-    <div class="video-wrapper">
-      <iframe loading="lazy" src="https://www.youtube.com/embed/MQcLogxajog" allowfullscreen></iframe>
-      <iframe loading="lazy" src="https://www.youtube.com/embed/AtQERuTmFZA" allowfullscreen></iframe>
-      <iframe loading="lazy" src="https://www.youtube.com/embed/eU_QQJx9oMM" allowfullscreen></iframe>
-    </div>
-  </section>
-
-  <section id="about" data-aos="fade-up">
+  <section id="about" class="section" data-aos="fade-up">
     <h2>درباره من</h2>
-    <p>هیرومیا، خالق محتوای ویدیویی و هنری با تمرکز بر خلاقیت، زیبایی و سادگی.</p>
+    <p>سلام! من هیرومیا هستم. اینجا صفحه شخصی من است.</p>
   </section>
 
-  <section id="contact" data-aos="fade-up">
+  <section id="videos" class="section" data-aos="zoom-in">
+    <h2>ویدیوها</h2>
+    <iframe loading="lazy" src="https://www.youtube.com/embed/MQcLogxajog" allowfullscreen></iframe>
+    <iframe loading="lazy" src="https://www.youtube.com/embed/AtQERuTmFZA" allowfullscreen></iframe>
+    <iframe loading="lazy" src="https://www.youtube.com/embed/eU_QQJx9oMM" allowfullscreen></iframe>
+  </section>
+
+  <section id="contact" class="section" data-aos="fade-up">
     <h2>تماس با من</h2>
     <form>
-      <input type="text" placeholder="نام شما" required><br><br>
-      <input type="email" placeholder="ایمیل" required><br><br>
-      <textarea placeholder="پیام شما" required></textarea><br><br>
+      <input type="text" placeholder="نام شما">
+      <input type="email" placeholder="ایمیل شما">
+      <textarea rows="4" placeholder="پیام شما"></textarea>
       <button type="submit">ارسال</button>
     </form>
   </section>
 
-  <footer>
-    ساخته شده با عشق توسط هیرومیا - 2025
-  </footer>
-
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init();</script>
   <script>
+    AOS.init();
+
     function toggleTheme() {
-      document.body.classList.toggle('dark-mode');
+      document.body.classList.toggle("dark");
+      // بررسی اینکه آیا در حالت تیره است یا خیر و ذخیره در localStorage
+      if(document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    }
+
+    // بارگذاری تم ذخیره شده
+    window.onload = () => {
+      const theme = localStorage.getItem("theme");
+      if(theme === "dark") document.body.classList.add("dark");
     }
   </script>
 </body>
