@@ -13,130 +13,142 @@
     }
     body {
       font-family: 'Vazirmatn', sans-serif;
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-      color: #eee;
+      background: linear-gradient(120deg, #1f1f1f, #121212);
+      color: white;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
     header {
-      background-color: rgba(0, 0, 0, 0.85);
+      background-color: rgba(0, 0, 0, 0.8);
       padding: 20px;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(10px);
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      animation: fadeInDown 1.5s ease-out;
     }
     nav a {
-      margin: 0 15px;
-      color: #00ffc3;
+      margin: 0 20px;
+      color: #00ffcc;
       text-decoration: none;
       font-weight: bold;
-      transition: 0.3s;
+      transition: color 0.3s ease;
     }
     nav a:hover {
-      color: #ff66cc;
-    }
-    .hero {
-      background: url('https://images.unsplash.com/photo-1606760728446-d91524c9996c?auto=format&fit=crop&w=1470&q=80') no-repeat center/cover;
-      padding: 150px 20px;
-      text-align: center;
-      color: white;
-      text-shadow: 0 0 10px black;
-    }
-    .hero h1 {
-      font-size: 3.5rem;
-    }
-    .hero p {
-      font-size: 1.3rem;
-      margin-top: 20px;
-    }
-    .card {
-      background: #1e1e1e;
-      margin: 30px auto;
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 900px;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.15);
-      transition: 0.4s;
-    }
-    .card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 50px rgba(0, 255, 255, 0.25);
+      color: #ff00ff;
     }
     .section {
       padding: 60px 20px;
       text-align: center;
+      animation: fadeIn 1.5s ease forwards;
     }
-    .logo {
-      max-width: 100px;
-      margin-bottom: 10px;
+    .hero {
+      background: url('https://images.unsplash.com/photo-1606760728446-d91524c9996c?auto=format&fit=crop&w=1470&q=80') no-repeat center/cover;
+      padding: 120px 20px;
+      color: white;
+      text-shadow: 0 2px 10px black;
+      animation: zoomIn 1.5s ease-out;
+    }
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #1c1c1c;
+      margin: 20px auto;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 800px;
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 60px rgba(0, 255, 255, 0.3);
     }
     footer {
-      background: #101010;
       text-align: center;
       padding: 20px;
-      color: #888;
+      background: #111;
+      color: #aaa;
     }
-    .ppt-section iframe {
-      width: 100%;
+    .embed-container {
+      margin: 20px auto;
+      text-align: center;
       max-width: 900px;
+    }
+    iframe {
+      width: 100%;
       height: 500px;
       border: none;
-      border-radius: 15px;
-      margin-top: 20px;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes zoomIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="./A_logo_features_\"HIROMIYA_STUDIO\"_written_in_bold,.png" alt="لوگوی Hiromiya" class="logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/2048px-Figma-logo.svg.png" alt="لوگو" width="60">
     <nav>
       <a href="#home">خانه</a>
-      <a href="#about">درباره</a>
+      <a href="#about">درباره من</a>
       <a href="#videos">ویدیوها</a>
-      <a href="#ppt">پاورپوینت</a>
       <a href="#contact">تماس</a>
     </nav>
   </header>
 
   <section id="home" class="hero">
     <h1>به Hiromiya Studio خوش اومدی</h1>
-    <p>پایگاه رسمی داستان‌ها، گیم‌پلی‌ها و ایده‌های بی‌نظیر من!</p>
+    <p>جایی برای گیم پلی‌های خفن، داستان‌های عمیق و سرگرمی‌هایی که فراموش نمی‌کنی!</p>
   </section>
 
   <section id="about" class="section">
     <div class="card">
       <h2>درباره من</h2>
-      <p>۱۸ سالمه، ۷ ساله گیمرم. طرفدار روبلاکس، کالاف دیوتی موبایل و ماینکرفت. عاشق داستان‌نویسی و ساخت دنیای جدید. قد؟ ۱۸۷. غذا؟ فقط قرمه‌سبزی!</p>
+      <p>من ۱۸ سالمه، ۷ ساله گیمرم. عاشق روبلاکس، کالاف دیوتی موبایل، دیدنت و ماینکرفت. غذا؟ فقط قرمه‌سبزی! قدم؟ ۱۸۷!</p>
     </div>
   </section>
 
   <section id="videos" class="section">
     <div class="card">
       <h2>ویدیوهای من</h2>
-      <p>از اینجا می‌تونی مستقیم بری سراغ یوتیوب:</p>
-      <a href="https://m.youtube.com/@Hiromiya-Studio/videos" target="_blank" style="color:#00ffcc; text-decoration: underline; font-weight: bold;">مشاهده در یوتیوب</a>
+      <p>از اینجا می‌تونی مستقیم بری سراغ ویدیوها:</p>
+      <a href="https://m.youtube.com/@Hiromiya-Studio/videos" target="_blank" style="color:#00ffcc;text-decoration:underline">مشاهده در یوتیوب</a>
     </div>
   </section>
 
-  <section id="ppt" class="section ppt-section">
-    <div class="card">
-      <h2>پاورپوینت معرفی استودیو</h2>
-      <p>پیشنهاد می‌کنم این پاورپوینت زیبا و حرفه‌ای رو ببینی:</p>
-      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT8n7oE7SAMPLEEMBEDURL/pub?start=false&loop=false&delayms=3000" allowfullscreen></iframe>
+  <section id="presentation" class="section">
+    <div class="embed-container">
+      <h2>پاورپوینت Hiromiya Studio</h2>
+      <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://your-site-path/Hiromiya_Studio_Presentation.pptx"></iframe>
     </div>
   </section>
 
   <section id="contact" class="section">
     <div class="card">
       <h2>تماس با من</h2>
-      <p>برای همکاری یا هر سوالی می‌تونی در یوتیوب کامنت بذاری یا ایمیل بفرستی به: hiromiya@example.com</p>
+      <p>برای همکاری یا سوالات، لطفاً در یوتیوب کامنت بذار یا به ایمیل hiromiya@example.com پیام بده.</p>
     </div>
   </section>
 
   <footer>
-    © 2025 Hiromiya Studio. تمام حقوق محفوظ است.
+    © 2025 Hiromiya Studio. همه حقوق محفوظ است.
   </footer>
 </body>
 </html>
