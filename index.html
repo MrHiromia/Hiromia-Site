@@ -17,7 +17,7 @@
       color: white;
       overflow-x: hidden;
       scroll-behavior: smooth;
-      animation: spaceEffect 3s infinite alternate;
+      animation: spaceEffect 4s infinite alternate;
     }
     header {
       background-color: rgba(0, 0, 0, 0.9);
@@ -27,17 +27,18 @@
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(10px);
-      animation: fadeInDown 1.5s ease-out;
+      animation: fadeInDown 1s ease-out;
     }
     nav a {
       margin: 0 20px;
       color: #00ffcc;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
     nav a:hover {
       color: #ff00ff;
+      transform: scale(1.1);
     }
     .section {
       padding: 60px 20px;
@@ -49,16 +50,18 @@
       padding: 120px 20px;
       color: white;
       text-shadow: 0 2px 10px black;
-      animation: zoomIn 1.5s ease-out;
+      animation: zoomIn 1s ease-out;
     }
     .hero h1 {
       font-size: 48px;
       margin-bottom: 20px;
+      animation: slideIn 1s ease-out;
     }
     .hero p {
       font-size: 20px;
       max-width: 600px;
       margin: 0 auto;
+      animation: slideIn 1.2s ease-out;
     }
     .card {
       background: #1c1c1c;
@@ -68,6 +71,7 @@
       max-width: 800px;
       box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: fadeInUp 1.5s ease-out;
     }
     .card:hover {
       transform: translateY(-10px);
@@ -87,9 +91,17 @@
       0% { opacity: 0; transform: translateY(-30px); }
       100% { opacity: 1; transform: translateY(0); }
     }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
     @keyframes zoomIn {
       0% { transform: scale(0.8); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes slideIn {
+      0% { opacity: 0; transform: translateX(-100%); }
+      100% { opacity: 1; transform: translateX(0); }
     }
     @keyframes spaceEffect {
       0% { background: linear-gradient(120deg, #000000, #1a1a1a); }
@@ -105,10 +117,11 @@
       margin: 0 10px;
       color: #00ffcc;
       font-size: 20px;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
     .social-share a:hover {
       color: #ff00ff;
+      transform: scale(1.2);
     }
     .video-container {
       display: flex;
@@ -122,6 +135,11 @@
       height: 200px;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .video-container iframe:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
     }
     .survey-container {
       margin-top: 40px;
@@ -168,7 +186,6 @@
       <h2>ویدیوهای من</h2>
       <p>از اینجا می‌تونی مستقیم بری سراغ ویدیوها:</p>
       <div class="video-container">
-        <!-- ویدیوهای یوتیوب -->
         <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -177,30 +194,24 @@
   </section>
 
   <section id="contact" class="section">
-    <div class="card">
-      <h2>تماس با من</h2>
-      <p>برای همکاری یا سوالات، لطفاً در یوتیوب کامنت بذار یا به ایمیل hiromiya@example.com پیام بده.</p>
+    <div class="survey-container">
+      <h3>نظر شما در مورد این سایت چیه؟</h3>
+      <select>
+        <option value="excellent">عالی</option>
+        <option value="good">خوب</option>
+        <option value="average">معمولی</option>
+        <option value="poor">ضعیف</option>
+      </select>
     </div>
   </section>
 
-  <section id="survey" class="survey-container">
-    <h3>نظرسنجی</h3>
-    <p>نظر شما درباره محتواها و ویدیوهای ما چطور بوده؟</p>
-    <select>
-      <option value="excellent">عالی</option>
-      <option value="good">خوب</option>
-      <option value="average">متوسط</option>
-      <option value="poor">ضعیف</option>
-    </select>
-  </section>
-
-  <div class="social-share">
-    <a href="https://www.instagram.com" target="_blank">اینستاگرام</a>
-    <a href="https://twitter.com" target="_blank">توییتر</a>
-  </div>
-
   <footer>
-    © 2025 Hiromiya Studio. همه حقوق محفوظ است.
+    <p>&copy; 2025 Hiromiya Studio. تمامی حقوق محفوظ است.</p>
+    <div class="social-share">
+      <a href="https://www.instagram.com" target="_blank">اینستاگرام</a>
+      <a href="https://twitter.com" target="_blank">تویتر</a>
+      <a href="https://www.linkedin.com" target="_blank">لینکدین</a>
+    </div>
   </footer>
 </body>
 </html>
