@@ -1,197 +1,110 @@
 <!DOCTYPE html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>استودیو هیرومیا</title>
-  
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" href="favicon.png" type="image/png">
-  
-  <!-- Persian Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- سایر استایل‌ها و اسکریپت‌ها -->
-  ...
-</head>
-
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>استودیو هیرومیا</title>
-  <meta name="description" content="استودیو هیرومیا - دنیایی از گیمینگ، هنر دیجیتال و نوآوری">
-  <meta name="keywords" content="هیرومیا, گیمینگ, استودیو, یوتیوب, بازی">
-  <link rel="icon" href="logo.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  
+  <!-- Favicon Support -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+
+  <!-- Persian Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- AOS Scroll Animation -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Custom Styles -->
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Vazirmatn', sans-serif;
-    }
     body {
-      background-color: #0f0f0f;
-      color: #eee;
-      overflow-x: hidden;
+      font-family: 'Vazirmatn', sans-serif;
+      margin: 0;
+      background: #111;
+      color: #fff;
+      scroll-behavior: smooth;
     }
     header {
-      height: 100vh;
-      background: linear-gradient(-45deg, #1a1b20, #150024);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      background: #000;
+      padding: 2rem;
       text-align: center;
-      animation: gradientBG 20s ease infinite;
-    }
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+      position: relative;
     }
     header h1 {
-      font-size: 3rem;
-      color: #fff;
-      text-shadow: 0 0 10px #00ffcc;
+      font-size: 2.5rem;
+      margin: 0;
+      color: #00ffd9;
     }
-    header .tagline {
-      font-size: 1.5rem;
-      margin-top: 1rem;
-      background: linear-gradient(90deg, #ff00cc, #00aaff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    section {
+      padding: 3rem 1rem;
+      text-align: center;
     }
-    .cta-button {
-      margin-top: 2rem;
-      background: #00aaff;
-      padding: 0.8rem 1.5rem;
+    iframe {
+      width: 100%;
+      max-width: 720px;
+      height: 405px;
       border: none;
-      border-radius: 50px;
-      color: #fff;
-      cursor: pointer;
-      transition: 0.3s;
+      margin-bottom: 2rem;
+      border-radius: 12px;
     }
-    .cta-button:hover {
-      background: #ff00cc;
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #00ffd9;
     }
-    .video-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      padding: 2rem;
-    }
-    .video-container iframe {
-      width: 100%;
-      max-width: 480px;
-      height: 270px;
-      border-radius: 10px;
-    }
-    .typewriter {
-      color: #00ffff;
-      font-size: 1.3rem;
+    audio {
       margin-top: 1rem;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid #00ffff;
-      animation: typing 4s steps(30, end), blink 1s infinite;
     }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+    footer {
+      padding: 2rem;
+      background: #000;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
     }
-    @keyframes blink {
-      0%, 100% { border-color: transparent }
-      50% { border-color: #00ffff; }
-    }
-    .scroll-indicator {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 5px;
-      height: 0;
-      background: linear-gradient(to bottom, #00aaff, #ff00cc);
-      z-index: 9999;
-    }
-    .preloader {
-      background-color: #000;
-      width: 100%;
-      height: 100vh;
-      position: fixed;
-      top: 0;
-      left: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 99999;
-    }
-    .preloader img {
-      width: 100px;
-      animation: spin 2s linear infinite;
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    .logo {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 1rem;
     }
   </style>
 </head>
+
 <body>
-  <div class="preloader">
-    <img src="logo.png" alt="لوگو هیرومیا">
-  </div>
-
-  <div class="scroll-indicator"></div>
-
-  <header>
+  <header data-aos="fade-down">
+    <img src="favicon.png" alt="هیرومیا لوگو" class="logo" />
     <h1>استودیو هیرومیا</h1>
-    <p class="tagline">ماجراجویی، هنر و تکنولوژی</p>
-    <div class="typewriter">خوش اومدی به دنیای دیجیتال من!</div>
-    <button class="cta-button" onclick="document.getElementById('videos').scrollIntoView({ behavior: 'smooth' })">تماشای ویدیوها</button>
   </header>
 
-  <section id="videos" data-aos="fade-up">
-    <h2 style="text-align:center; margin:2rem 0;">ویدیوهای اخیر</h2>
-    <div class="video-grid">
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/MQcLogxajog" allowfullscreen></iframe>
-      </div>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/AtQERuTmFZA" allowfullscreen></iframe>
-      </div>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/eU_QQJx9oMM" allowfullscreen></iframe>
-      </div>
-    </div>
+  <section data-aos="fade-up">
+    <h2 class="section-title">ویدیوهای ویژه</h2>
+    <iframe loading="lazy" src="https://www.youtube.com/embed/MQcLogxajog?autoplay=0&mute=1&controls=1&modestbranding=1" allowfullscreen></iframe>
+    <iframe loading="lazy" src="https://www.youtube.com/embed/AtQERuTmFZA?autoplay=0&mute=1&controls=1&modestbranding=1" allowfullscreen></iframe>
+    <iframe loading="lazy" src="https://www.youtube.com/embed/eU_QQJx9oMM?autoplay=0&mute=1&controls=1&modestbranding=1" allowfullscreen></iframe>
   </section>
 
-  <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2f9fdf73a1.mp3" type="audio/mpeg">
-  </audio>
+  <section data-aos="fade-up">
+    <h2 class="section-title">موسیقی پس‌زمینه</h2>
+    <audio controls loop>
+      <source src="music.mp3" type="audio/mpeg" />
+      مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
+    </audio>
+  </section>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <footer data-aos="fade-up">
+    تمامی حقوق محفوظ است - استودیو هیرومیا © 2025
+  </footer>
+
+  <!-- AOS Scroll Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    AOS.init();
-
-    // Scroll Indicator
-    window.addEventListener('scroll', () => {
-      const winScroll = document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      document.querySelector(".scroll-indicator").style.height = scrolled + "%";
-    });
-
-    // Preloader
-    window.addEventListener('load', () => {
-      document.querySelector('.preloader').style.display = 'none';
-      document.getElementById('bg-music').play().catch(()=>{});
-    });
+    AOS.init({ once: true, duration: 1000 });
   </script>
 </body>
 </html>
