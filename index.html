@@ -1,189 +1,183 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="سایت رسمی هیرومیا - هنرمند و خالق محتوای دیجیتال. مشاهده ویدیوها، ارسال پیام و کشف بیشتر." />
-  <title>هیرومیا | سایت رسمی</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet" integrity="sha384-G6WvISwZHakEvRXB7iEAZEC0uLPWxKxxEeHEdBDEuDfSU/EYEYdzSsfXCMV6tAnC" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="وب‌سایت رسمی هیرومیا - گالری ویدیو، تماس، و معرفی">
+  <title>هیرومیا | وب‌سایت رسمی</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary-color: #6f42c1;
-      --bg-light: #fff;
-      --bg-dark: #121212;
-      --text-light: #f8f9fa;
-      --text-dark: #212529;
-    }
-
-    body {
-      font-family: 'Vazirmatn', sans-serif;
+    * {
       margin: 0;
-      transition: background 0.3s, color 0.3s;
+      padding: 0;
+      box-sizing: border-box;
+      user-select: none;
     }
-
-    body.dark-mode {
-      background-color: var(--bg-dark);
-      color: var(--text-light);
+    html, body {
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      max-width: 100vw;
     }
-
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+    }
+    .dark {
+      --bg: #111111;
+      --text: #ffffff;
+    }
     header {
       padding: 2rem;
       text-align: center;
-      background: var(--primary-color);
-      color: white;
+      background: var(--bg);
+      position: relative;
+      z-index: 10;
     }
-
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      white-space: nowrap;
+    }
     nav {
       display: flex;
       justify-content: center;
       gap: 2rem;
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(6px);
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    iframe {
+      max-width: 90vw;
+      height: 315px;
+      border: none;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+    #toggle-theme {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 100;
       transition: background 0.3s;
     }
-
-    body.dark-mode nav {
-      background: rgba(0, 0, 0, 0.6);
+    footer {
+      background: var(--bg);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
     }
-
-    nav a {
-      text-decoration: none;
-      color: inherit;
+    #contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 400px;
+      margin: auto;
+    }
+    #contact input,
+    #contact textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: inherit;
+    }
+    #contact button {
+      padding: 0.75rem;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
       font-weight: bold;
-      transition: opacity 0.2s;
     }
-
-    nav a:hover {
-      opacity: 0.7;
-    }
-
-    .typing {
-      font-size: 1.5rem;
-      margin-top: 1rem;
-      color: inherit;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid;
-      animation: typing 3s steps(30, end), blink 0.7s step-end infinite;
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent }
-    }
-
-    section {
-      padding: 3rem 1rem;
-    }
-
     .section-title {
       font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    iframe {
-      max-width: 100%;
-      border-radius: 10px;
-    }
-
-    .theme-toggle {
-      position: fixed;
-      left: 10px;
-      top: 10px;
-      background: var(--primary-color);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      z-index: 999;
-    }
-
-    #contact {
-      background: #f1f1f1;
-      border-radius: 8px;
-    }
-
-    body.dark-mode #contact {
-      background: #1e1e1e;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
+      margin-bottom: 2rem;
     }
   </style>
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
-
-  <header>
-    <h1>هیرومیا</h1>
-    <div class="typing">به سایت رسمی هیرومیا خوش اومدی!</div>
+  <button id="toggle-theme">تغییر تم</button>
+  <header data-aos="fade-down">
+    <h1 id="type-text"></h1>
+    <nav>
+      <a href="#videos">ویدیوها</a>
+      <a href="#contact">تماس با من</a>
+      <a href="#about">درباره</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#videos">ویدیوها</a>
-    <a href="#about">درباره ما</a>
-    <a href="#contact">تماس</a>
-  </nav>
-
   <section id="videos" data-aos="fade-up">
-    <h2 class="section-title">ویدیوها</h2>
-    <iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/MQcLogxajog" allowfullscreen></iframe>
-    <iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/AtQERuTmFZA" allowfullscreen></iframe>
-    <iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/eU_QQJx9oMM" allowfullscreen></iframe>
+    <h2 class="section-title">گالری ویدیو</h2>
+    <iframe loading="lazy" src="https://www.youtube.com/embed/MQcLogxajog?rel=0"></iframe>
+    <iframe loading="lazy" src="https://www.youtube.com/embed/AtQERuTmFZA?rel=0"></iframe>
+    <iframe loading="lazy" src="https://www.youtube.com/embed/eU_QQJx9oMM?rel=0"></iframe>
   </section>
 
-  <section id="about" data-aos="fade-left">
-    <h2 class="section-title">درباره هیرومیا</h2>
-    <p>هیرومیا هنرمند و تولیدکننده محتوای دیجیتال است. او با سبک خاص خود، مخاطبان بسیاری را جذب کرده است.</p>
-  </section>
-
-  <section id="contact" data-aos="fade-right">
-    <h2 class="section-title">تماس با ما</h2>
+  <section id="contact" data-aos="fade-up">
+    <h2 class="section-title">تماس با من</h2>
     <form>
-      <div class="mb-3">
-        <label class="form-label">نام</label>
-        <input type="text" class="form-control" />
-      </div>
-      <div class="mb-3">
-        <label class="form-label">ایمیل</label>
-        <input type="email" class="form-control" />
-      </div>
-      <div class="mb-3">
-        <label class="form-label">پیام</label>
-        <textarea class="form-control" rows="4"></textarea>
-      </div>
-      <button class="btn btn-primary">ارسال</button>
+      <input type="text" placeholder="نام شما">
+      <input type="email" placeholder="ایمیل شما">
+      <textarea placeholder="پیام شما"></textarea>
+      <button type="submit">ارسال</button>
     </form>
   </section>
 
+  <section id="about" data-aos="fade-up">
+    <h2 class="section-title">درباره هیرومیا</h2>
+    <p>این وب‌سایت رسمی هیرومیا است. برای مشاهده ویدیوها، تماس یا اطلاعات بیشتر، از بخش‌های بالا استفاده کنید.</p>
+  </section>
+
   <footer>
-    © 2025 هیرومیا. همه حقوق محفوظ است.
+    <p>تمامی حقوق محفوظ است &copy; 2025 هیرومیا</p>
   </footer>
 
-  <audio autoplay loop style="display: none">
-    <source src="music.mp3" type="audio/mpeg">
+  <audio autoplay loop style="display:none">
+    <source src="background.mp3" type="audio/mpeg">
   </audio>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
 
-    function toggleTheme() {
-      const body = document.body;
-      body.classList.toggle('dark-mode');
+    const toggleBtn = document.getElementById('toggle-theme');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+
+    const typeTarget = document.getElementById("type-text");
+    const texts = ["به سایت رسمی هیرومیا خوش آمدید"];
+    let i = 0, j = 0;
+    function typeEffect() {
+      if (j < texts[i].length) {
+        typeTarget.textContent += texts[i][j];
+        j++;
+        setTimeout(typeEffect, 90);
+      }
     }
+    typeEffect();
   </script>
 </body>
 </html>
