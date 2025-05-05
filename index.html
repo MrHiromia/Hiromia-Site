@@ -3,158 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="صفحه شخصی هیرومیا - شامل ویدیوها، اطلاعات تماس، و درباره ما با طراحی مدرن و زیبا.">
-  <title>هیرومیا | صفحه رسمی</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description" content="سایت رسمی هیرومیا - معرفی، ویدیوها و ارتباط با ما">
+  <title>سایت رسمی هیرومیا</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Vazirmatn', sans-serif;
-      transition: all 0.3s ease;
+    body.dark {
+      background-color: #111;
+      color: #eee;
     }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      scroll-behavior: smooth;
-    }
-    :root {
-      --bg: #ffffff;
-      --text: #000000;
-      --header: #f1f1f1;
-    }
-    .dark {
-      --bg: #121212;
-      --text: #f0f0f0;
-      --header: #1e1e1e;
-    }
-    header {
-      background: var(--header);
-      padding: 1rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    nav a {
-      margin: 0 10px;
-      color: var(--text);
-      text-decoration: none;
-    }
-    .typing {
-      font-size: 1.5rem;
+    #typewriter {
+      font-family: 'Vazir', sans-serif;
       white-space: nowrap;
-      border-right: 2px solid var(--text);
       overflow: hidden;
-      width: 0;
-      animation: typing 4s steps(30, end) forwards, blink 0.7s step-end infinite;
+      border-right: .15em solid orange;
+      animation: typing 4s steps(40, end), blink .75s step-end infinite;
     }
     @keyframes typing {
-      to { width: 100%; }
+      from { width: 0 }
+      to { width: 100% }
     }
     @keyframes blink {
-      50% { border-color: transparent; }
+      from, to { border-color: transparent }
+      50% { border-color: orange }
     }
-    .section {
-      padding: 4rem 1rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    iframe {
-      width: 100%;
-      height: 300px;
-      margin-bottom: 1rem;
-      border: none;
-      border-radius: 10px;
-    }
-    .toggle-theme {
-      position: fixed;
-      top: 1rem;
-      left: 1rem;
-      background: var(--header);
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1000;
-      opacity: 0.7;
-    }
-    .toggle-theme:hover {
-      opacity: 1;
-    }
-    form {
-      background: var(--header);
-      padding: 1rem;
-      border-radius: 10px;
-    }
-    input, textarea, button {
-      width: 100%;
-      margin: 0.5rem 0;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 5px;
-    }
-    button {
-      background: #007bff;
-      color: #fff;
-      cursor: pointer;
+    .fade {
+      transition: all 0.3s ease-in-out;
     }
   </style>
 </head>
-<body>
-  <div class="toggle-theme" onclick="toggleTheme()">حالت تیره / روشن</div>
-  <header>
-    <h1 class="typing">به سایت رسمی هیرومیا خوش آمدید</h1>
-    <nav>
-      <a href="#about">درباره</a>
-      <a href="#videos">ویدیوها</a>
-      <a href="#contact">تماس</a>
-    </nav>
-  </header>
+<body class="bg-white text-black dark:bg-black dark:text-white">
+  <!-- ناوبری -->
+  <nav class="fixed top-0 left-0 w-full z-30 bg-black/70 backdrop-blur-md text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <img src="logo.png" alt="Hiromiya Logo" class="h-10">
+      <ul class="flex gap-4">
+        <li><a href="#videos" class="hover:text-orange-400">ویدیوها</a></li>
+        <li><a href="#about" class="hover:text-orange-400">درباره ما</a></li>
+        <li><a href="#contact" class="hover:text-orange-400">ارتباط</a></li>
+      </ul>
+      <button id="theme-toggle" class="bg-gray-800 text-white px-3 py-1 rounded">حالت</button>
+    </div>
+  </nav>
 
-  <section id="about" class="section" data-aos="fade-up">
-    <h2>درباره من</h2>
-    <p>سلام! من هیرومیا هستم. اینجا صفحه شخصی من است.</p>
+  <!-- تایپ افکت -->
+  <div class="pt-40 text-center">
+    <div id="typewriter" class="text-3xl md:text-5xl font-bold text-orange-500 mt-10 z-20 relative">
+      به سایت رسمی هیرومیا خوش اومدی
+    </div>
+  </div>
+
+  <!-- بخش ویدیوها -->
+  <section id="videos" class="max-w-5xl mx-auto mt-20 px-4" data-aos="fade-up">
+    <h2 class="text-2xl font-bold mb-6">ویدیوهای ما</h2>
+    <div class="grid gap-4 md:grid-cols-3">
+      <iframe loading="lazy" src="https://www.youtube.com/embed/MQcLogxajog" class="w-full h-48" allowfullscreen></iframe>
+      <iframe loading="lazy" src="https://www.youtube.com/embed/AtQERuTmFZA" class="w-full h-48" allowfullscreen></iframe>
+      <iframe loading="lazy" src="https://www.youtube.com/embed/eU_QQJx9oMM" class="w-full h-48" allowfullscreen></iframe>
+    </div>
   </section>
 
-  <section id="videos" class="section" data-aos="zoom-in">
-    <h2>ویدیوها</h2>
-    <iframe loading="lazy" src="https://www.youtube.com/embed/MQcLogxajog" allowfullscreen></iframe>
-    <iframe loading="lazy" src="https://www.youtube.com/embed/AtQERuTmFZA" allowfullscreen></iframe>
-    <iframe loading="lazy" src="https://www.youtube.com/embed/eU_QQJx9oMM" allowfullscreen></iframe>
+  <!-- درباره ما -->
+  <section id="about" class="max-w-3xl mx-auto mt-20 px-4" data-aos="fade-left">
+    <h2 class="text-2xl font-bold mb-4">درباره هیرومیا</h2>
+    <p>ما در هیرومیا محتوای خاص و منحصر به فرد ارائه می‌دهیم...</p>
   </section>
 
-  <section id="contact" class="section" data-aos="fade-up">
-    <h2>تماس با من</h2>
-    <form>
-      <input type="text" placeholder="نام شما">
-      <input type="email" placeholder="ایمیل شما">
-      <textarea rows="4" placeholder="پیام شما"></textarea>
-      <button type="submit">ارسال</button>
+  <!-- تماس با ما -->
+  <section id="contact" class="max-w-2xl mx-auto mt-20 px-4 mb-20" data-aos="fade-right">
+    <h2 class="text-2xl font-bold mb-4">تماس با ما</h2>
+    <form class="space-y-4">
+      <input type="text" placeholder="نام" class="w-full p-2 border rounded bg-white dark:bg-gray-800">
+      <input type="email" placeholder="ایمیل" class="w-full p-2 border rounded bg-white dark:bg-gray-800">
+      <textarea placeholder="پیام شما..." class="w-full p-2 border rounded bg-white dark:bg-gray-800"></textarea>
+      <button type="submit" class="bg-orange-500 text-white px-4 py-2 rounded">ارسال</button>
     </form>
   </section>
+
+  <!-- موزیک مخفی -->
+  <audio autoplay loop hidden>
+    <source src="background.mp3" type="audio/mpeg">
+  </audio>
 
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
-
-    function toggleTheme() {
-      document.body.classList.toggle("dark");
-      // بررسی اینکه آیا در حالت تیره است یا خیر و ذخیره در localStorage
-      if(document.body.classList.contains("dark")) {
-        localStorage.setItem("theme", "dark");
-      } else {
-        localStorage.setItem("theme", "light");
-      }
-    }
-
-    // بارگذاری تم ذخیره شده
-    window.onload = () => {
-      const theme = localStorage.getItem("theme");
-      if(theme === "dark") document.body.classList.add("dark");
-    }
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
   </script>
 </body>
 </html>
