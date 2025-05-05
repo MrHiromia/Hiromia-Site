@@ -13,20 +13,23 @@
     }
     body {
       font-family: 'Vazirmatn', sans-serif;
-      background: linear-gradient(120deg, #1f1f1f, #121212);
+      background-color: #121212;
       color: white;
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
     header {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.9);
       padding: 20px;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(10px);
-      animation: fadeInDown 1.5s ease-out;
+      transition: background-color 0.3s ease;
+    }
+    header:hover {
+      background-color: rgba(0, 0, 0, 0.7);
     }
     nav a {
       margin: 0 20px;
@@ -51,7 +54,7 @@
       animation: zoomIn 1.5s ease-out;
     }
     .hero h1 {
-      font-size: 48px;
+      font-size: 50px;
       margin-bottom: 20px;
     }
     .hero p {
@@ -72,28 +75,61 @@
       transform: translateY(-10px);
       box-shadow: 0 0 60px rgba(0, 255, 255, 0.3);
     }
+    .video-gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .video-card {
+      margin: 10px;
+      width: 300px;
+      height: 170px;
+      background-color: #1a1a1a;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+    .video-card img {
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      transition: opacity 0.3s ease;
+    }
+    .video-card:hover {
+      transform: scale(1.05);
+    }
+    .video-card:hover img {
+      opacity: 0.8;
+    }
+    .footer-icons a {
+      margin: 10px;
+      color: #00ffcc;
+      text-decoration: none;
+      font-size: 24px;
+      transition: color 0.3s ease;
+    }
+    .footer-icons a:hover {
+      color: #ff00ff;
+    }
     footer {
       text-align: center;
-      padding: 20px;
-      background: #111;
+      padding: 30px;
+      background-color: #111;
       color: #aaa;
     }
-    .embed-container {
-      margin: 20px auto;
-      text-align: center;
-      max-width: 900px;
-    }
-    iframe {
+    .search-bar {
       width: 100%;
-      height: 500px;
-      border: none;
+      max-width: 600px;
+      padding: 10px;
+      margin: 20px auto;
+      border-radius: 10px;
+      border: 2px solid #00ffcc;
+      background-color: #333;
+      color: white;
+      font-size: 16px;
     }
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-30px); }
       100% { opacity: 1; transform: translateY(0); }
     }
     @keyframes zoomIn {
@@ -128,15 +164,18 @@
   <section id="videos" class="section">
     <div class="card">
       <h2>ویدیوهای من</h2>
-      <p>از اینجا می‌تونی مستقیم بری سراغ ویدیوها:</p>
-      <a href="https://m.youtube.com/@Hiromiya-Studio/videos" target="_blank" style="color:#00ffcc;text-decoration:underline">مشاهده در یوتیوب</a>
-    </div>
-  </section>
-
-  <section id="presentation" class="section">
-    <div class="embed-container">
-      <h2>پاورپوینت Hiromiya Studio</h2>
-      <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://your-site-path/Hiromiya_Studio_Presentation.pptx"></iframe>
+      <p>آخرین ویدیوها:</p>
+      <div class="video-gallery">
+        <div class="video-card">
+          <img src="https://via.placeholder.com/300x170" alt="ویدیو 1">
+        </div>
+        <div class="video-card">
+          <img src="https://via.placeholder.com/300x170" alt="ویدیو 2">
+        </div>
+        <div class="video-card">
+          <img src="https://via.placeholder.com/300x170" alt="ویدیو 3">
+        </div>
+      </div>
     </div>
   </section>
 
@@ -148,7 +187,12 @@
   </section>
 
   <footer>
-    © 2025 Hiromiya Studio. همه حقوق محفوظ است.
+    <div class="footer-icons">
+      <a href="https://www.instagram.com/Hiromiya_Studio" target="_blank">Instagram</a>
+      <a href="https://twitter.com/Hiromiya_Studio" target="_blank">Twitter</a>
+      <a href="https://www.youtube.com/@Hiromiya-Studio" target="_blank">YouTube</a>
+    </div>
+    <p>© 2025 Hiromiya Studio. همه حقوق محفوظ است.</p>
   </footer>
 </body>
 </html>
