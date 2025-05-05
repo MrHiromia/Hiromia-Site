@@ -1,62 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hiromiya Studio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: 'Roboto Mono', monospace;
-      background-color: #0d0d0d;
-      color: #f0f0f0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(to right, #ff0066, #6600ff);
       padding: 2rem;
-    }
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-      color: #00ffff;
-      text-shadow: 0 0 10px #00ffff;
-    }
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
       text-align: center;
-      margin-bottom: 2rem;
     }
-    a.button {
-      text-decoration: none;
-      background-color: #00ffff;
-      color: #000;
-      padding: 1rem 2rem;
-      border-radius: 8px;
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    .logo {
+      width: 100px;
+      border-radius: 50%;
+      margin: 1rem auto;
+      display: block;
+    }
+    .tagline {
+      font-size: 1.2rem;
       font-weight: bold;
-      box-shadow: 0 0 15px #00ffff;
-      transition: background 0.3s, transform 0.2s;
+      margin-top: 1rem;
     }
-    a.button:hover {
-      background-color: #00dddd;
-      transform: scale(1.05);
+    .section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .thumbnail {
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+    }
+    .highlight {
+      color: #ff66cc;
+      font-weight: bold;
     }
     footer {
-      position: absolute;
-      bottom: 1rem;
+      background-color: #222;
+      padding: 1rem;
+      text-align: center;
       font-size: 0.9rem;
-      color: #888;
+    }
+    a {
+      color: #66ccff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
-  <h1>Hiromiya Studio</h1>
-  <p>خوش اومدی به دنیای من! اینجا می‌تونی مانگاها، داستان‌ها و دنیایی که تو یوتیوب ساختم رو دنبال کنی. اگه دنبال ماجراجویی تاریک و خفن هستی، اینجایی که باید باشی!</p>
-  <a class="button" href="https://m.youtube.com/@Hiromiya-Studio/videos" target="_blank">دیدن چنل در یوتیوب</a>
-  <footer>© 2025 Hiromiya Studio</footer>
+  <header>
+    <img src="1000050076.jpg" alt="لوگو" class="logo">
+    <h1>سلام! به استودیو Hiromiya خوش اومدی</h1>
+    <p class="tagline">شعار ما: زن، زندگی، آزادی ✊</p>
+  </header>
+
+  <section class="section">
+    <h2>🔥 معرفی چنل</h2>
+    <p>
+      توی این چنل قراره بازی‌هایی مثل <span class="highlight">روبلاکس</span>، <span class="highlight">دیدنت</span>، <span class="highlight">کالاف دیوتی موبایل</span> و <span class="highlight">ماینکرفت</span> رو باحال‌ترین شکل ممکن ببینی. 
+      هر هفته ویدیوهای سرگرم‌کننده داریم و توی آینده قراره مانگا و داستان‌های خاصی هم داخل سایت منتشر کنیم!
+    </p>
+    <a href="https://m.youtube.com/@Hiromiya-Studio/videos" target="_blank">👉 ورود به چنل یوتیوب</a>
+    <br><br>
+    <img src="1000050076.jpg" alt="تامینل نمونه" class="thumbnail">
+  </section>
+
+  <section class="section">
+    <h2>👦 درباره من</h2>
+    <p>
+      من <strong>۱۸</strong> سالمه، متولد سال <strong>۱۳۸۵</strong> هستم و حدود <strong>۷ ساله گیمرم</strong>!
+      عاشق <strong>قرمه‌سبزی</strong>م 😋 و قدمم هم <strong>۱۸۷ سانتی‌متره</strong> 😎
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>📬 ارتباط با من</h2>
+    <p>آیدی تلگرامم: <a href="https://t.me/MrHiromia" target="_blank">@MrHiromia</a></p>
+  </section>
+
+  <footer>
+    ساخته شده با عشق ❤️ توسط Hiromiya Studio | تمامی حقوق محفوظ است.
+  </footer>
 </body>
 </html>
