@@ -4,23 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>استودیو هیرومیا</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta name="description" content="استودیو هیرومیا - دنیایی از گیمینگ، هنر دیجیتال و نوآوری">
+  <meta name="keywords" content="هیرومیا, گیمینگ, استودیو, یوتیوب, بازی">
+  <link rel="icon" href="logo.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <style>
-    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif;}
-    body {background-color: #0f0f0f; color: #eee; line-height: 1.6; text-align: justify;}
-    a {color: inherit; text-decoration: none;}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+    body {
+      background-color: #0f0f0f;
+      color: #eee;
+      overflow-x: hidden;
+    }
     header {
-      position: relative;
-      height: 80vh;
+      height: 100vh;
+      background: linear-gradient(-45deg, #1a1b20, #150024);
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      background: linear-gradient(-45deg, #1a1b20, #150024, #00132d, #0b0015);
-      background-size: 400% 400%;
+      justify-content: center;
+      text-align: center;
       animation: gradientBG 20s ease infinite;
     }
     @keyframes gradientBG {
@@ -31,128 +40,138 @@
     header h1 {
       font-size: 3rem;
       color: #fff;
-      text-shadow: 0 0 5px #ff00cc, 0 0 10px #00ffec;
-      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px #00ffcc;
     }
     header .tagline {
       font-size: 1.5rem;
+      margin-top: 1rem;
       background: linear-gradient(90deg, #ff00cc, #00aaff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: fadeIn 3s ease-in-out 1s both;
     }
-    header .cta-button {
-      margin-top: 1.5rem;
+    .cta-button {
+      margin-top: 2rem;
+      background: #00aaff;
       padding: 0.8rem 1.5rem;
-      background: linear-gradient(45deg, #ff00cc, #00aaff);
       border: none;
-      border-radius: 25px;
+      border-radius: 50px;
       color: #fff;
-      font-size: 1rem;
       cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: 0.3s;
     }
-    header .cta-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(0,255,204,0.7);
+    .cta-button:hover {
+      background: #ff00cc;
     }
-    section {padding: 3rem 1rem; max-width: 1000px; margin: 0 auto;}
-    section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      position: relative;
+    .video-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      padding: 2rem;
     }
-    section h2::after {
-      content: "";
-      display: block;
-      width: 50%;
-      height: 4px;
-      background: linear-gradient(45deg, #ff00cc, #00aaff);
-      margin: 0.5rem auto 0;
-      border-radius: 2px;
-    }
-    .video-grid {display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;}
-    .video-container {
-      flex: 1 1 300px;
+    .video-container iframe {
+      width: 100%;
       max-width: 480px;
-      background: #000;
+      height: 270px;
       border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
-    .video-container iframe {width: 100%; height: 270px;}
-    .rating-stars {
-      text-align: center;
+    .typewriter {
+      color: #00ffff;
+      font-size: 1.3rem;
       margin-top: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #00ffff;
+      animation: typing 4s steps(30, end), blink 1s infinite;
     }
-    .rating-stars i {
-      font-size: 2rem;
-      color: #888;
-      transition: color 0.3s;
-      cursor: pointer;
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
     }
-    .rating-stars i:hover,
-    .rating-stars i.active {
-      color: #ffcc00;
-      transform: scale(1.2);
+    @keyframes blink {
+      0%, 100% { border-color: transparent }
+      50% { border-color: #00ffff; }
     }
-    audio {
+    .scroll-indicator {
       position: fixed;
-      bottom: 10px;
-      left: 10px;
-      width: 200px;
-      opacity: 0.6;
+      top: 0;
+      right: 0;
+      width: 5px;
+      height: 0;
+      background: linear-gradient(to bottom, #00aaff, #ff00cc);
+      z-index: 9999;
+    }
+    .preloader {
+      background-color: #000;
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 99999;
+    }
+    .preloader img {
+      width: 100px;
+      animation: spin 2s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
-  <audio autoplay loop muted>
-    <source src="https://cdn.pixabay.com/download/audio/2022/10/20/audio_07d41bbdb3.mp3" type="audio/mpeg">
-  </audio>
+  <div class="preloader">
+    <img src="logo.png" alt="لوگو هیرومیا">
+  </div>
 
-  <header id="home" data-aos="zoom-in">
+  <div class="scroll-indicator"></div>
+
+  <header>
     <h1>استودیو هیرومیا</h1>
-    <p class="tagline">ماجراجویی، هنر و تکنولوژی در یک مکان</p>
-    <a href="#videos" class="cta-button">تماشای ویدیوها</a>
+    <p class="tagline">ماجراجویی، هنر و تکنولوژی</p>
+    <div class="typewriter">خوش اومدی به دنیای دیجیتال من!</div>
+    <button class="cta-button" onclick="document.getElementById('videos').scrollIntoView({ behavior: 'smooth' })">تماشای ویدیوها</button>
   </header>
 
   <section id="videos" data-aos="fade-up">
-    <h2>ویدیوهای گیمینگ</h2>
+    <h2 style="text-align:center; margin:2rem 0;">ویدیوهای اخیر</h2>
     <div class="video-grid">
-      <div class="video-container"><iframe src="https://www.youtube.com/embed/MQcLogxajog" allowfullscreen></iframe></div>
-      <div class="video-container"><iframe src="https://www.youtube.com/embed/AtQERuTmFZA" allowfullscreen></iframe></div>
-      <div class="video-container"><iframe src="https://www.youtube.com/embed/eU_QQJx9oMM" allowfullscreen></iframe></div>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/MQcLogxajog" allowfullscreen></iframe>
+      </div>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/AtQERuTmFZA" allowfullscreen></iframe>
+      </div>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/eU_QQJx9oMM" allowfullscreen></iframe>
+      </div>
     </div>
   </section>
 
-  <section id="about" data-aos="fade-left">
-    <h2>درباره من</h2>
-    <p>سلام! من هیرومیا هستم، یک گیمر و سازنده محتوا. اینجا مرکز دنیای دیجیتال منه؛ جایی برای بازی، خلاقیت و ارتباط با شما.</p>
-  </section>
-
-  <section id="feedback" data-aos="fade-up">
-    <h2>امتیاز دهید</h2>
-    <div class="rating-stars">
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-    </div>
-  </section>
+  <audio id="bg-music" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2f9fdf73a1.mp3" type="audio/mpeg">
+  </audio>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
 
-    const stars = document.querySelectorAll('.rating-stars i');
-    stars.forEach((star, index) => {
-      star.addEventListener('click', () => {
-        stars.forEach((s, i) => {
-          s.classList.toggle('active', i <= index);
-        });
-      });
+    // Scroll Indicator
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.querySelector(".scroll-indicator").style.height = scrolled + "%";
+    });
+
+    // Preloader
+    window.addEventListener('load', () => {
+      document.querySelector('.preloader').style.display = 'none';
+      document.getElementById('bg-music').play().catch(()=>{});
     });
   </script>
 </body>
